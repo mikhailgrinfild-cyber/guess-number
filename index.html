@@ -2,48 +2,42 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Угадай число</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Сапёр</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="icon">🎯</div>
-            <h1>Угадай число</h1>
-            <p class="subtitle">Я загадал число от 1 до 100</p>
+            <div class="icon">💣</div>
+            <h1>Сапёр</h1>
+            <p class="subtitle">Найди все мины!</p>
         </div>
 
-        <div class="game-area">
-            <div class="attempts">
-                <span>Попыток: <b id="attempts">0</b></span>
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-label">💣 Мины</span>
+                <span class="stat-value" id="minesCount">10</span>
             </div>
-
-            <div class="hint" id="hint">
-                Введи число и нажми "Проверить"
+            <div class="stat">
+                <span class="stat-label">⏱️ Время</span>
+                <span class="stat-value" id="timer">0</span>
             </div>
-
-            <input 
-                type="number" 
-                id="guessInput" 
-                placeholder="Твоё число..." 
-                min="1" 
-                max="100"
-                autocomplete="off"
-            >
-
-            <button id="checkBtn" class="btn-primary">
-                Проверить
-            </button>
-
-            <button id="restartBtn" class="btn-secondary" style="display:none;">
-                Играть снова
-            </button>
+            <div class="stat">
+                <span class="stat-label">🚩 Флаги</span>
+                <span class="stat-value" id="flagsCount">0</span>
+            </div>
         </div>
+
+        <div class="board" id="board"></div>
+
+        <button id="restartBtn" class="btn-primary">
+            🔄 Новая игра
+        </button>
 
         <div class="footer">
-            <p>Число от 1 до 100</p>
+            <p>Нажми на клетку — открой. Долгое нажатие — поставить флаг 🚩</p>
         </div>
     </div>
 
